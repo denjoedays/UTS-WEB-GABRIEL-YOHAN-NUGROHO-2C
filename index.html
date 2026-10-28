@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Personal Portfolio dan Dashboard Proyek Gabriel Yohan Nugroho - Mahasiswa Fakultas Teknik dan Ilmu Komputer UNP Kediri.">
+    <title>Portfolio & Dashboard | Gabriel Yohan Nugroho</title>
+    
+    <!-- Tailwind CSS Framework CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#1e40af'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS Eksternal -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 font-sans">
+
+    <!-- HEADER & NAV (Semantik HTML5) -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur border-b border-slate-200 dark:border-slate-700">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center" aria-label="Navigasi Utama">
+            <a href="#" class="text-xl font-bold text-primary dark:text-blue-400 tracking-tight">
+                Gabriel<span class="text-slate-800 dark:text-white">.Dev</span>
+            </a>
+
+            <ul class="hidden md:flex space-x-6 font-medium text-sm">
+                <li><a href="#tentang" class="hover:text-primary dark:hover:text-blue-400 transition">Tentang</a></li>
+                <li><a href="#proyek" class="hover:text-primary dark:hover:text-blue-400 transition">Proyek</a></li>
+                <li><a href="#kalkulator" class="hover:text-primary dark:hover:text-blue-400 transition">Estimasi Biaya</a></li>
+                <li><a href="#kontak" class="hover:text-primary dark:hover:text-blue-400 transition">Kontak</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3">
+                <!-- Tombol Dark Mode Toggle -->
+                <button id="theme-toggle" type="button" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition text-sm font-medium" aria-label="Ganti Tema">
+                    <span id="theme-icon">🌙 Mode Gelap</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT (Semantik HTML5) -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-16">
+
+        <!-- SECTION 1: HERO & ASIDE PROFIL -->
+        <section id="tentang" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start pt-4">
+            <!-- Bagian Utama Perkenalan -->
+            <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <span class="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 rounded-full mb-4">
+                    Web Developer & QA Enthusiast
+                </span>
+                <h1 class="text-3xl md:text-4xl font-extrabold mb-4 leading-tight">
+                    Halo, Saya <span class="text-primary dark:text-blue-400">Gabriel Yohan Nugroho</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                    Mahasiswa Prodi Sistem Informasi di Universitas Nusantara PGRI Kediri. Berfokus pada pengembangan antarmuka web yang responsif, pengujian perangkat lunak (Unit & API Testing), serta perancangan arsitektur sistem yang terstruktur.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#proyek" class="px-6 py-2.5 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow transition">
+                        Lihat Karya Saya
+                    </a>
+                    <a href="#kalkulator" class="px-6 py-2.5 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 font-semibold rounded-lg transition">
+                        Hitung Estimasi Proyek
+                    </a>
+                </div>
+            </div>
+
+            <!-- ASIDE: Info Singkat & Statistik (Semantik HTML5) -->
+            <aside class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center">
+                <img src="img/gabbb.jpg" 
+                     onerror="this.src='https://ui-avatars.com/api/?name=Gabriel+Yohan&size=200&background=2563eb&color=fff'" 
+                     alt="Foto Profil Gabriel Yohan Nugroho" 
+                     class="w-28 h-28 rounded-full object-cover border-4 border-primary mb-4 shadow">
+                <h2 class="text-lg font-bold">Gabriel Yohan Nugroho</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Kediri, Jawa Timur, Indonesia</p>
+                
+                <div class="w-full border-t border-slate-200 dark:border-slate-700 pt-4 text-left space-y-2 text-sm">
+                    <p><strong>Keahlian:</strong> HTML5, CSS, JS, PHP</p>
+                    <p><strong>Tools:</strong> VS Code, Laragon, Postman, Git</p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/denjoedays" target="_blank" class="text-primary dark:text-blue-400 hover:underline">@denjoedays</a></p>
+                </div>
+            </aside>
+        </section>
+
+        <!-- SECTION 2: DAFTAR PROYEK DENGAN FILTER INTERAKTIF -->
+        <section id="proyek" class="space-y-6">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-end gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold">Showcase Proyek & Karya</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm">Filter daftar proyek berdasarkan kategori di bawah ini.</p>
+                </div>
+
+                <!-- Tombol Filter Kategori (Interaktif UI JS) -->
+                <div class="flex flex-wrap gap-2" id="filter-buttons">
+                    <button data-filter="all" class="filter-btn active-filter px-4 py-1.5 rounded-lg text-sm font-medium bg-primary text-white transition">Semua</button>
+                    <button data-filter="web" class="filter-btn px-4 py-1.5 rounded-lg text-sm font-medium bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 transition">Web Dev</button>
+                    <button data-filter="testing" class="filter-btn px-4 py-1.5 rounded-lg text-sm font-medium bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 transition">QA & Testing</button>
+                    <button data-filter="arsitektur" class="filter-btn px-4 py-1.5 rounded-lg text-sm font-medium bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 transition">Arsitektur Sistem</button>
+                </div>
+            </div>
+
+            <!-- Grid Daftar Artikel Proyek (Semantik <article>) -->
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <article data-category="web" class="project-card bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Web Development</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Interactive Web Portfolio</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            Website portofolio responsif berbasis HTML5 Semantik, Tailwind CSS, dan manipulasi DOM JavaScript.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-500">
+                        <span>HTML5 • Tailwind • JS</span>
+                        <a href="https://github.com/denjoedays" target="_blank" class="text-primary dark:text-blue-400 font-semibold hover:underline">Lihat Repo →</a>
+                    </div>
+                </article>
+
+                <article data-category="testing" class="project-card bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">QA & Testing</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">PHP Unit & API Validator</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            Pengujian skrip validasi backend menggunakan PHP dan otomatisasi pengujian endpoint REST API dengan Postman.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-500">
+                        <span>PHP • Postman • JSON</span>
+                        <a href="https://github.com/denjoedays" target="_blank" class="text-primary dark:text-blue-400 font-semibold hover:underline">Lihat Repo →</a>
+                    </div>
+                </article>
+
+                <article data-category="arsitektur" class="project-card bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">Enterprise Architecture</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2">Perancangan Sistem TOGAF ADM</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                            Pemodelan arsitektur sistem informasi dan arsitektur data (Phase C) untuk mendukung efisiensi proses bisnis.
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-500">
+                        <span>TOGAF • UML • Database</span>
+                        <a href="https://github.com/denjoedays" target="_blank" class="text-primary dark:text-blue-400 font-semibold hover:underline">Lihat Detail →</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: FITUR KALKULATOR ESTIMASI BIAYA PROYEK (Wajib JS) -->
+        <section id="kalkulator" class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold mb-2">Kalkulator Estimasi Biaya Proyek Web</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                    Simulasikan perkiraan biaya pembuatan proyek website secara langsung berdasarkan spesifikasi kebutuhan Anda.
+                </p>
+
+                <form id="calc-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="project-type" class="block text-sm font-medium mb-2">Jenis Website</label>
+                        <select id="project-type" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="500000">Landing Page / Portfolio (Rp 500.000)</option>
+                            <option value="1200000">Company Profile Dinamis (Rp 1.200.000)</option>
+                            <option value="2500000">Sistem Informasi / Dashboard CRUD (Rp 2.500.000)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="page-count" class="block text-sm font-medium mb-2">Jumlah Halaman Tambahan (Rp 100.000 / hal)</label>
+                        <input type="number" id="page-count" min="0" max="50" value="1" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+
+                    <div>
+                        <label for="urgency" class="block text-sm font-medium mb-2">Target Waktu Pengerjaan</label>
+                        <select id="urgency" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option value="1">Reguler - 2 sampai 4 Minggu (Normal)</option>
+                            <option value="1.3">Cepat - 1 Minggu (+30% Biaya Express)</option>
+                            <option value="1.5">Kilat - 3 Hari (+50% Biaya Prioritas)</option>
+                        </select>
+                    </div>
+
+                    <div class="flex items-end">
+                        <button type="button" id="btn-hitung" class="w-full py-2.5 px-4 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow transition">
+                            Hitung Estimasi Biaya
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Hasil Output Kalkulator ke DOM -->
+                <div id="calc-result-box" class="mt-6 p-5 rounded-xl bg-blue-50 dark:bg-slate-700/60 border border-blue-200 dark:border-slate-600 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div>
+                        <span class="text-xs uppercase font-semibold text-slate-500 dark:text-slate-300">Total Estimasi Biaya:</span>
+                        <p id="total-price" class="text-2xl font-extrabold text-primary dark:text-blue-400">Rp 600.000</p>
+                    </div>
+                    <p id="calc-detail" class="text-xs text-slate-600 dark:text-slate-300 text-right">
+                        Landing Page + 1 Halaman Tambahan (Waktu Reguler)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: FORM KONTAK DENGAN VALIDASI JS -->
+        <section id="kontak" class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <div class="max-w-xl mx-auto">
+                <h2 class="text-2xl font-bold mb-2">Hubungi Saya</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mb-6">
+                    Kirimkan pesan untuk diskusi proyek atau kolaborasi.
+                </p>
+
+                <form id="contact-form" novalidate class="space-y-4">
+                    <div>
+                        <label for="nama" class="block text-sm font-medium mb-1">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-1">Alamat Email</label>
+                        <input type="email" id="email" placeholder="nama@email.com" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div>
+                        <label for="pesan" class="block text-sm font-medium mb-1">Pesan</label>
+                        <textarea id="pesan" rows="4" placeholder="Tulis detail pesan atau kebutuhan proyek..." class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                    </div>
+
+                    <!-- Notifikasi Validasi DOM -->
+                    <div id="form-feedback" class="hidden p-3 rounded-lg text-sm font-medium"></div>
+
+                    <button type="submit" class="w-full py-2.5 px-6 bg-primary hover:bg-secondary text-white font-semibold rounded-lg shadow transition">
+                        Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (Semantik HTML5) -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 mt-16 py-6">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center text-sm text-slate-500 dark:text-slate-400 gap-2">
+            <p>&copy; 2026 Gabriel Yohan Nugroho. Tugas UTS Pemrograman Web - UNP Kediri.</p>
+            <p>Dibuat dengan HTML5 Semantik, Tailwind CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- File JavaScript Eksternal -->
+    <script src="js/script.js"></script>
+</body>
+</html>
