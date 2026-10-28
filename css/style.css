@@ -1,0 +1,33 @@
+/* Custom Styling Tambahan untuk UTS Pemrograman Web */
+
+.project-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.15);
+}
+
+/* Efek sembunyi saat difilter dengan JavaScript */
+.hidden-card {
+    display: none !important;
+}
+
+/* Kustomisasi Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
